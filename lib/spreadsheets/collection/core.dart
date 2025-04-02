@@ -100,7 +100,7 @@ class SpreadSheetsCollectionDatabaseUniverseGas {
     return;
   }
 
-  List<List> getValues({
+  List<List> getValuesRaw({
     int startOffset = 2,
     int limit = 1000,
     int startRow = 1,
@@ -125,6 +125,23 @@ class SpreadSheetsCollectionDatabaseUniverseGas {
       limit, // total return
       endRow, // total row
     );
+  }
+
+  List<Map> getValues({
+    int startOffset = 2,
+    int limit = 1000,
+  }) {
+    final List<String> keys = this.keys;
+    return getValuesRaw(
+      startOffset: startOffset,
+      limit: limit,
+      startRow: 1,
+      endRow: keys.length,
+    ).map((e) {
+      return e.database_universe_gas_extension_spreadsheet_toJson(
+        keys: keys,
+      );
+    }).toList();
   }
 
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
