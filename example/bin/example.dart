@@ -115,10 +115,11 @@ void main(List<String> args) {
       databaseUniverseGas.ensureInitialized();
       databaseUniverseGas.initialized();
       final SpreadSheetsCollectionDatabaseUniverseGas telegam_chat_collection = databaseUniverseGas.from("telegram_chat");
+
       int index = 10;
       // telegam_chat_collection;
-      // 
-      
+      //
+
       {
         print("telegam_chat_collection.deleteByIndex: start");
         final value = telegam_chat_collection.deleteByIndex(
@@ -127,7 +128,7 @@ void main(List<String> args) {
         value.printPretty();
         print("telegam_chat_collection.deleteByIndex: done");
       }
-      // 
+      //
       // {
       //   print("telegam_chat_collection.getByIndex: start");
       //   final value = telegam_chat_collection.getByIndex(

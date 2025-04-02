@@ -56,6 +56,7 @@ class SpreadSheetsCollectionDatabaseUniverseGas {
   int _keyLength = 0;
 
   bool _isEensureInitialized = false;
+  bool _isInitialized = false;
 
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   List<String> get keys {
@@ -79,12 +80,26 @@ class SpreadSheetsCollectionDatabaseUniverseGas {
     return;
   }
 
-/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
+  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   void initialized() {
+    if (_isInitialized) {
+      return;
+    }
+    final String sheetRange = SpreadsheetGeneralUniverseUtils.createRange(
+      startColumn: 1,
+      endRow: keyLength,
+      totalLength: 1,
+    );
+    spreadsheet.getRange(sheetRange).setValues(
+      [
+        keys,
+      ],
+    );
+    _isInitialized = true;
     return;
   }
 
-/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
+  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   Map? getByIndex({
     required final int index,
   }) {
@@ -92,11 +107,11 @@ class SpreadSheetsCollectionDatabaseUniverseGas {
     if (value != null) {
       value["@id"] = index;
     }
-    
+
     return value;
   }
 
-/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
+  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   bool deleteByIndex({
     required final int index,
   }) {
@@ -115,7 +130,7 @@ class SpreadSheetsCollectionDatabaseUniverseGas {
     return true;
   }
 
-/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
+  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   Map setByIndex({
     required final int index,
     required final Map newValue,
@@ -137,7 +152,7 @@ class SpreadSheetsCollectionDatabaseUniverseGas {
     return newValues.database_universe_gas_extension_spreadsheet_toJson(keys: keys);
   }
 
-/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
+  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   Map updateByIndex({
     required final int index,
     required final Map newValue,
