@@ -74,6 +74,32 @@ class SpreadSheetsDatabaseUniverseGas {
     );
   }
 
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
+  SpreadSheetsCollectionDatabaseUniverseGas create({
+    required SpreadSheetsSchemeDatabaseUniverseGas scheme,
+  }) {
+    // check if found
+    {
+      final SpreadSheetsCollectionDatabaseUniverseGas? oldSheetsCollectionDatabaseUniverseGas = fromOrNull(scheme.sheetName);
+      if (oldSheetsCollectionDatabaseUniverseGas != null) {
+        return oldSheetsCollectionDatabaseUniverseGas;
+      }
+    }
+    final SpreadSheetsCollectionDatabaseUniverseGas sheetsCollectionDatabaseUniverseGas = SpreadSheetsCollectionDatabaseUniverseGas(
+      spreadSheetsSchemeDatabaseUniverseGas: SpreadSheetsSchemeDatabaseUniverseGas(
+        sheetName: scheme.sheetName,
+        jsonScheme: scheme.jsonScheme,
+      ),
+      spreadsheet: spreadsheet.getSheetByNameAutoCreateIfNotExist(scheme.sheetName),
+    );
+
+    collections.add(sheetsCollectionDatabaseUniverseGas);
+    sheetsCollectionDatabaseUniverseGas.ensureInitialized();
+    sheetsCollectionDatabaseUniverseGas.initialized();
+
+    return sheetsCollectionDatabaseUniverseGas;
+  }
+
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   void ensureInitialized() {
     for (final element in collections) {
@@ -91,9 +117,20 @@ class SpreadSheetsDatabaseUniverseGas {
   }
 
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
-  SpreadSheetsCollectionDatabaseUniverseGas from(final String fromSheetName) {
+  SpreadSheetsCollectionDatabaseUniverseGas? fromOrNull(final String fromSheetName) {
     final SpreadSheetsCollectionDatabaseUniverseGas? spreadSheetsSchemeDatabaseUniverseGas = collections.firstWhereOrNull(
       (e) => e.spreadSheetsSchemeDatabaseUniverseGas.sheetName == fromSheetName,
+    );
+    if (spreadSheetsSchemeDatabaseUniverseGas == null) {
+      return null;
+    }
+    return spreadSheetsSchemeDatabaseUniverseGas;
+  }
+
+  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
+  SpreadSheetsCollectionDatabaseUniverseGas from(final String fromSheetName) {
+    final SpreadSheetsCollectionDatabaseUniverseGas? spreadSheetsSchemeDatabaseUniverseGas = fromOrNull(
+      fromSheetName,
     );
     if (spreadSheetsSchemeDatabaseUniverseGas == null) {
       throw "Unknown Sheet Name";
