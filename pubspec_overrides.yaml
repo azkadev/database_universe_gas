@@ -1,0 +1,8 @@
+
+dependency_overrides:
+  general_universe:
+    path: '../../../galaxeus/app/general_developer_public_library_project/packages/general_universe'
+  google_apps_script_library:
+    path: '../../general-developer/google_apps_script_library/package/google_apps_script_library'
+  mime: '^2.0.0'
+  pointycastle: '^4.0.0'

@@ -1,0 +1,4 @@
+#!/bin/sh
+
+
+dart run google_apps_script_library --file /home/galaxeus/Documents/github/azkadev/database_universe_gas/example/bin/example.dart --release
