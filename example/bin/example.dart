@@ -35,10 +35,7 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 import 'dart:convert';
 import 'dart:math';
 
-import 'package:database_universe_gas/database_universe_gas.dart';
-import 'package:database_universe_gas/spreadsheets/collection/collection.dart';
-import 'package:database_universe_gas/spreadsheets/core.dart';
-import 'package:database_universe_gas/spreadsheets/scheme/core.dart';
+import 'package:database_universe_gas/database_universe_gas.dart'; 
 import 'package:general_universe/extension/dynamic.dart';
 import 'package:general_universe/crypto/crypto.dart';
 import 'package:general_universe/json_scheme/json_scheme.dart';
