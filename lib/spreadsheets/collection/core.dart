@@ -99,7 +99,6 @@ class SpreadSheetsCollectionDatabaseUniverseGas {
 /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   bool deleteByIndex({
     required final int index,
-    required final Map newValue,
   }) {
     final String sheetRange = SpreadsheetGeneralUniverseUtils.createRange(
       startColumn: 1,

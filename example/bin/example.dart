@@ -115,32 +115,45 @@ void main(List<String> args) {
       databaseUniverseGas.ensureInitialized();
       databaseUniverseGas.initialized();
       final SpreadSheetsCollectionDatabaseUniverseGas telegam_chat_collection = databaseUniverseGas.from("telegram_chat");
+      int index = 10;
       // telegam_chat_collection;
+      // 
+      
       {
-        print("telegam_chat_collection.getByIndex: start");
-        final value = telegam_chat_collection.getByIndex(
-          index: 2,
+        print("telegam_chat_collection.deleteByIndex: start");
+        final value = telegam_chat_collection.deleteByIndex(
+          index: index,
         );
         value.printPretty();
-        print("telegam_chat_collection.getByIndex: done");
+        print("telegam_chat_collection.deleteByIndex: done");
       }
-      // telegam_chat_collection;
-      {
-        print("telegam_chat_collection.setByIndex: start");
-        final value = telegam_chat_collection.setByIndex(
-          index: 2,
-          newValue: {
-            "chat_id": -100002,
-            "user_id": 3141401,
-            "room_chat_id": 31930141,
-            "data": json.encode({
-              "date": DateTime.now().toString(),
-            })
-          },
-        );
-        value.printPretty();
-        print("telegam_chat_collection.setByIndex: done");
-      }
+      // 
+      // {
+      //   print("telegam_chat_collection.getByIndex: start");
+      //   final value = telegam_chat_collection.getByIndex(
+      //     index: index,
+      //   );
+      //   value.printPretty();
+      //   print("telegam_chat_collection.getByIndex: done");
+      // }
+      // // telegam_chat_collection;
+      // {
+      //   print("telegam_chat_collection.setByIndex: start");
+      //   final value = telegam_chat_collection.setByIndex(
+      //     index: index,
+      //     newValue: {
+      //       "chat_id": -500002,
+      //       "user_id": 7141401,
+      //       "room_chat_id": 31930141,
+      //       "data": json.encode({
+      //         "date": DateTime.now().toString(),
+      //       })
+      //     },
+      //   );
+      //   value.printPretty();
+      //   print("telegam_chat_collection.setByIndex: done");
+      // }
+
       // final Spreadsheet spreadsheet = () {
       //   final Spreadsheet spreadsheet = SpreadsheetApp.openByUrl(sheetUrl);
 
