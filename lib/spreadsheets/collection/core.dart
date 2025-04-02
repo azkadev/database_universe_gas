@@ -100,7 +100,9 @@ class SpreadSheetsCollectionDatabaseUniverseGas {
     return;
   }
 
-  List<List> getValuesRaw({
+  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
+
+  List<List?> getValuesRaw({
     int startOffset = 2,
     int limit = 1000,
     int startRow = 1,
@@ -119,17 +121,19 @@ class SpreadSheetsCollectionDatabaseUniverseGas {
       }
     }
     //   int index = 2;
-    return spreadsheet.getSheetValues(
-      startOffset, // offset
-      startRow, // start row
-      limit, // total return
-      endRow, // total row
-    );
+    return spreadsheet.getSheetValues(startOffset, startRow, limit, endRow).map((e) {
+      if (e.database_universe_gas_extension_spreadsheet_isEmpty) {
+        return null;
+      }
+      return e;
+    }).toList();
   }
 
-  List<Map> getValues({
+  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
+
+  List<Map?> getValues({
     int startOffset = 2,
-    int limit = 1000,
+    required int limit,
   }) {
     final List<String> keys = this.keys;
     return getValuesRaw(
@@ -138,6 +142,9 @@ class SpreadSheetsCollectionDatabaseUniverseGas {
       startRow: 1,
       endRow: keys.length,
     ).map((e) {
+      if (e == null) {
+        return null;
+      }
       return e.database_universe_gas_extension_spreadsheet_toJson(
         keys: keys,
       );

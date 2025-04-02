@@ -32,10 +32,7 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 
 
 <!-- END LICENSE --> */
-import 'dart:math';
 
-import 'package:database_universe_gas/extensions/list.dart';
-import 'package:general_universe/general_universe.dart';
 
 void main(List<String> args) {
   getValues(

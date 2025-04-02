@@ -42,9 +42,7 @@ import 'package:general_universe/extension/extension.dart';
 // import 'package:general_universe/crypto/crypto.dart';
 import 'package:general_universe/general_universe.dart' show Crypto;
 import 'package:general_universe/json_scheme/json_scheme.dart';
-import 'package:general_universe/utils/sheet/spreadsheet.dart';
 import 'package:google_apps_script_library/google_apps_script_library.dart';
-import 'package:database_universe_gas/database_universe_gas.dart';
 
 void main(List<String> args) {
   final GoogleAppsScriptEventTriggers googleAppsScriptEventTriggers = GoogleAppsScriptEventTriggers();
@@ -61,7 +59,7 @@ void main(List<String> args) {
   miniDatabaseUniverseGas.initiaLized();
   miniDatabaseUniverseGas.stateData.printPretty();
 
-  final bool is_request_permission = miniDatabaseUniverseGas.valueBuilder<bool>(
+  final bool isRequestPermission = miniDatabaseUniverseGas.valueBuilder<bool>(
     builder: (db) {
       if (db["is_request_permission"] is bool == false) {
         db["is_request_permission"] = false;
@@ -82,7 +80,7 @@ void main(List<String> args) {
   googleAppsScriptEventTriggers.ensureInitialized(
     onTest: () {
       {
-        if (is_request_permission == false) {
+        if (isRequestPermission == false) {
           {
             // DatabaseUniverseGas.requestPermissionExecute();
           }
@@ -101,7 +99,7 @@ void main(List<String> args) {
           miniDatabaseUniverseGas.write();
         }
       }
-      final String sheetName = "database";
+      // final String sheetName = "database";
 
       final SpreadSheetsDatabaseUniverseGas databaseUniverseGas = SpreadSheetsDatabaseUniverseGas.open(
         sheetIdOrUrl: sheetUrl,
@@ -114,20 +112,29 @@ void main(List<String> args) {
       );
       databaseUniverseGas.ensureInitialized();
       databaseUniverseGas.initialized();
-      final SpreadSheetsCollectionDatabaseUniverseGas telegam_chat_collection = databaseUniverseGas.from("telegram_chat");
+      final SpreadSheetsCollectionDatabaseUniverseGas telegamChatCollection = databaseUniverseGas.from("telegram_chat");
 
-      int index = 10;
+      // int index = 10;
       // telegam_chat_collection;
       //
 
       {
         print("telegam_chat_collection.deleteByIndex: start");
-        final value = telegam_chat_collection.deleteByIndex(
-          index: index,
+        final value = telegamChatCollection.getValues(
+          startOffset: 2,
+          limit: 10,
         );
         value.printPretty();
         print("telegam_chat_collection.deleteByIndex: done");
       }
+      // {
+      //   print("telegam_chat_collection.deleteByIndex: start");
+      //   final value = telegam_chat_collection.deleteByIndex(
+      //     index: index,
+      //   );
+      //   value.printPretty();
+      //   print("telegam_chat_collection.deleteByIndex: done");
+      // }
       //
       // {
       //   print("telegam_chat_collection.getByIndex: start");

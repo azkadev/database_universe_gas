@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names
+
 /* <!-- START LICENSE -->
 
 
@@ -36,10 +38,27 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 ///
 extension DatabaseUniverseGasExtensionList on List {
 /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
+  bool get database_universe_gas_extension_spreadsheet_isEmpty {
+    int count = 0;
+    for (final element in this) {
+      if (element == null) {
+        count++;
+      } else if (element is String && element.isEmpty) {
+        count++;
+      }
+    }
+    return count == length;
+  }
+
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
+  bool get database_universe_gas_extension_spreadsheet_isNotEmpty {
+    return database_universe_gas_extension_spreadsheet_isEmpty == false;
+  }
+
+  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   Map<String, dynamic> database_universe_gas_extension_spreadsheet_toJson({
     required List<String> keys,
   }) {
-    
     final Map<String, dynamic> jsonData = <String, dynamic>{};
     for (int i = 0; i < keys.length; i++) {
       jsonData[keys[i]] = this[i];
@@ -51,7 +70,7 @@ extension DatabaseUniverseGasExtensionList on List {
 /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
 ///
 extension DatabaseUniverseGasExtensionListOrNull on List? {
-/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
+  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   Map<String, dynamic>? database_universe_gas_extension_spreadsheet_toJson({
     required List<String> keys,
   }) {
