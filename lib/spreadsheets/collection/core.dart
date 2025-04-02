@@ -104,6 +104,7 @@ class SpreadSheetsCollectionDatabaseUniverseGas {
   int count() {
     return spreadsheet.getLastRow();
   }
+  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
 
   Map insert({
     required Map newValue,
