@@ -37,7 +37,7 @@ import 'package:google_apps_script_library/google_apps_script_library.dart';
 
 import 'collection/collection.dart';
 import 'scheme/scheme.dart';
- 
+
 /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
 class SpreadSheetsDatabaseUniverseGas {
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
@@ -74,7 +74,7 @@ class SpreadSheetsDatabaseUniverseGas {
     );
   }
 
-/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
+  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   void ensureInitialized() {
     for (final element in collections) {
       element.ensureInitialized();
@@ -82,7 +82,7 @@ class SpreadSheetsDatabaseUniverseGas {
     return;
   }
 
-/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
+  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   void initialized() {
     for (final element in collections) {
       element.initialized();
@@ -90,7 +90,7 @@ class SpreadSheetsDatabaseUniverseGas {
     return;
   }
 
-/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
+  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   SpreadSheetsCollectionDatabaseUniverseGas from(final String fromSheetName) {
     final SpreadSheetsCollectionDatabaseUniverseGas? spreadSheetsSchemeDatabaseUniverseGas = collections.firstWhereOrNull(
       (e) => e.spreadSheetsSchemeDatabaseUniverseGas.sheetName == fromSheetName,
@@ -101,4 +101,3 @@ class SpreadSheetsDatabaseUniverseGas {
     return spreadSheetsSchemeDatabaseUniverseGas;
   }
 }
- 

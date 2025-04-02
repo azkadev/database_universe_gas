@@ -33,13 +33,14 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 
 <!-- END LICENSE --> */
 import 'dart:convert';
+import 'dart:math';
 
 import 'package:database_universe_gas/database_universe_gas.dart';
 import 'package:database_universe_gas/spreadsheets/collection/collection.dart';
 import 'package:database_universe_gas/spreadsheets/core.dart';
 import 'package:database_universe_gas/spreadsheets/scheme/core.dart';
 import 'package:general_universe/extension/dynamic.dart';
- import 'package:general_universe/crypto/crypto.dart'; 
+import 'package:general_universe/crypto/crypto.dart';
 import 'package:general_universe/json_scheme/json_scheme.dart';
 import 'package:google_apps_script_library/google_apps_script_library.dart';
 
@@ -105,7 +106,15 @@ void main(List<String> args) {
         schemes: [
           SpreadSheetsSchemeDatabaseUniverseGas(
             sheetName: "telegram_chat",
-            jsonScheme: JsonScheme({"@type": "telegramChat", "chat_id": 0, "user_id": 0, "room_chat_id": 0, "data": json.encode({})}),
+            jsonScheme: JsonScheme(
+              {
+                "@type": "telegramChat",
+                "chat_id": 0,
+                "user_id": 0,
+                "room_chat_id": 0,
+                "data": json.encode({}),
+              },
+            ),
           ),
         ],
       );
@@ -117,14 +126,28 @@ void main(List<String> args) {
       // telegam_chat_collection;
       //
 
-
       {
         print("telegam_chat_collection.count: start");
-        final value = telegamChatCollection.count( 
-        );
+        final value = telegamChatCollection.count();
         value.printPretty();
         print("telegam_chat_collection.count: done");
       }
+
+      {
+        print("telegam_chat_collection.insert: start");
+        final value = telegamChatCollection.insert(
+          newValue: {
+            "@type": "telegramChat",
+            "chat_id": Random().nextInt(1000),
+            "user_id": Random().nextInt(1000),
+            "room_chat_id": Random().nextInt(1000),
+            "data": json.encode({}),
+          },
+        );
+        value.printPretty();
+        print("telegam_chat_collection.insert: done");
+      }
+
       // {
       //   print("telegam_chat_collection.getValuesRaw: start");
       //   final value = telegamChatCollection.getValuesRaw(

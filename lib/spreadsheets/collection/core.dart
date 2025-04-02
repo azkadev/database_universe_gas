@@ -100,8 +100,18 @@ class SpreadSheetsCollectionDatabaseUniverseGas {
     return;
   }
 
+  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   int count() {
     return spreadsheet.getLastRow();
+  }
+
+  Map insert({
+    required Map newValue,
+  }) {
+    return setByIndex(
+      index: count() + 1,
+      newValue: newValue,
+    );
   }
 
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
@@ -157,9 +167,9 @@ class SpreadSheetsCollectionDatabaseUniverseGas {
     required final int index,
   }) {
     final Map? value = spreadsheet.getSheetValues(index, 1, 1, keyLength).firstOrNull.database_universe_gas_extension_spreadsheet_toJson(keys: keys);
-    if (value != null) {
-      value["@id"] = index;
-    }
+    // if (value != null) {
+    //   value["@id"] = index;
+    // }
 
     return value;
   }
