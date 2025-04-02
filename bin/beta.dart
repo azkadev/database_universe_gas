@@ -38,23 +38,35 @@ import 'package:database_universe_gas/extensions/list.dart';
 import 'package:general_universe/general_universe.dart';
 
 void main(List<String> args) {
-  List? values;
+  getValues(
+    startOffset: 10,
+    limit: 1000,
+    startRow: 1,
+    endRow: -1,
+  );
+}
 
-  if (Random().nextBool()) {
-    values = [
-      "azkadev",
-      "azka",
-      "dev",
-      "id",
-    ];
+int keyLength = 10;
+
+List<List> getValues({
+  int startOffset = 2,
+  int limit = 1000,
+  int startRow = 1,
+  int endRow = 0,
+}) {
+  {
+    if (startOffset < 2) {
+      startOffset = 2;
+    }
   }
-
-  final List<String> keys = [
-    "username",
-    "first_name",
-    "last_name",
-    "language",
-  ];
-
-  values.database_universe_gas_extension_spreadsheet_toJson(keys: keys.toList()).printPretty();
+  {
+    if (endRow < 1) {
+      endRow = keyLength;
+    } else if (endRow > keyLength) {
+      endRow = keyLength;
+    }
+  }
+  print("startOffset: ${startOffset}");
+  print("endRow: ${endRow}");
+  return [];
 }

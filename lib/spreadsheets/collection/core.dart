@@ -100,6 +100,33 @@ class SpreadSheetsCollectionDatabaseUniverseGas {
     return;
   }
 
+  List<List> getValues({
+    int startOffset = 2,
+    int limit = 1000,
+    int startRow = 1,
+    int endRow = 0,
+  }) {
+    {
+      if (startOffset < 2) {
+        startOffset = 2;
+      }
+    }
+    {
+      if (endRow < 1) {
+        endRow = keyLength;
+      } else if (endRow > keyLength) {
+        endRow = keyLength;
+      }
+    }
+    //   int index = 2;
+    return spreadsheet.getSheetValues(
+      startOffset, // offset
+      startRow, // start row
+      limit, // total return
+      endRow, // total row
+    );
+  }
+
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   Map? getByIndex({
     required final int index,
