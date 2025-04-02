@@ -74,9 +74,10 @@ class SpreadSheetsDatabaseUniverseGas {
     );
   }
 
-/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
+  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   SpreadSheetsCollectionDatabaseUniverseGas create({
     required SpreadSheetsSchemeDatabaseUniverseGas scheme,
+    bool isAutoToCollection = true,
   }) {
     // check if found
     {
@@ -93,7 +94,9 @@ class SpreadSheetsDatabaseUniverseGas {
       spreadsheet: spreadsheet.getSheetByNameAutoCreateIfNotExist(scheme.sheetName),
     );
 
-    collections.add(sheetsCollectionDatabaseUniverseGas);
+    if (isAutoToCollection) {
+      collections.add(sheetsCollectionDatabaseUniverseGas);
+    }
     sheetsCollectionDatabaseUniverseGas.ensureInitialized();
     sheetsCollectionDatabaseUniverseGas.initialized();
 
