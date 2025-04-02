@@ -55,7 +55,7 @@ class SpreadSheetsCollectionDatabaseUniverseGas {
   List<String> _keys = [];
   int _keyLength = 0;
 
-  bool _isEensureInitialized = false;
+  bool _isEnsureInitialized = false;
   bool _isInitialized = false;
 
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
@@ -70,13 +70,13 @@ class SpreadSheetsCollectionDatabaseUniverseGas {
 
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   void ensureInitialized() {
-    if (_isEensureInitialized) {
+    if (_isEnsureInitialized) {
       return;
     }
 
     _keys = spreadSheetsSchemeDatabaseUniverseGas.jsonScheme.rawData.database_universe_gas_extension_toListSpreadSheet();
     _keyLength = _keys.length;
-    _isEensureInitialized = true;
+    _isEnsureInitialized = true;
     return;
   }
 
@@ -85,6 +85,7 @@ class SpreadSheetsCollectionDatabaseUniverseGas {
     if (_isInitialized) {
       return;
     }
+    // column 1
     final String sheetRange = SpreadsheetGeneralUniverseUtils.createRange(
       startColumn: 1,
       endRow: keyLength,
