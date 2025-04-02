@@ -100,6 +100,10 @@ class SpreadSheetsCollectionDatabaseUniverseGas {
     return;
   }
 
+  int count() {
+    return spreadsheet.getLastRow();
+  }
+
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
 
   List<List?> getValuesRaw({
@@ -141,7 +145,7 @@ class SpreadSheetsCollectionDatabaseUniverseGas {
       limit: limit,
       startRow: 1,
       endRow: keys.length,
-    ).map((e) { 
+    ).map((e) {
       return e.database_universe_gas_extension_spreadsheet_toJson(
         keys: keys,
       );

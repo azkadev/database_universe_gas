@@ -120,15 +120,22 @@ void main(List<String> args) {
 
 
       {
-        print("telegam_chat_collection.getValuesRaw: start");
-        final value = telegamChatCollection.getValuesRaw(
-          startOffset: 2,
-          limit: 10,
-          endRow: 2,
+        print("telegam_chat_collection.count: start");
+        final value = telegamChatCollection.count( 
         );
         value.printPretty();
-        print("telegam_chat_collection.getValuesRaw: done");
+        print("telegam_chat_collection.count: done");
       }
+      // {
+      //   print("telegam_chat_collection.getValuesRaw: start");
+      //   final value = telegamChatCollection.getValuesRaw(
+      //     startOffset: 2,
+      //     limit: 10,
+      //     endRow: 2,
+      //   );
+      //   value.printPretty();
+      //   print("telegam_chat_collection.getValuesRaw: done");
+      // }
       // {
       //   print("telegam_chat_collection.deleteByIndex: start");
       //   final value = telegamChatCollection.getValues(
