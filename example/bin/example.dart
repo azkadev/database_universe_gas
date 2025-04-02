@@ -90,7 +90,7 @@ void main(List<String> args) {
       }
       {
         if (sheetUrl.isEmpty) {
-          final Spreadsheet spreadsheet = SpreadsheetApp.create(
+          final SpreadSheet spreadsheet = SpreadsheetApp.create(
             "new",
           );
 

@@ -41,7 +41,7 @@ import 'scheme/scheme.dart';
 /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
 class SpreadSheetsDatabaseUniverseGas {
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
-  final Spreadsheet spreadsheet;
+  final SpreadSheet spreadsheet;
 
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   final List<SpreadSheetsCollectionDatabaseUniverseGas> collections;
@@ -57,7 +57,7 @@ class SpreadSheetsDatabaseUniverseGas {
     required String sheetIdOrUrl,
     required List<SpreadSheetsSchemeDatabaseUniverseGas> schemes,
   }) {
-    final Spreadsheet spreadsheet = SpreadsheetApp.openByUrlOrId(
+    final SpreadSheet spreadsheet = SpreadsheetApp.openByUrlOrId(
       sheetIdOrUrl: sheetIdOrUrl,
     );
     return SpreadSheetsDatabaseUniverseGas(

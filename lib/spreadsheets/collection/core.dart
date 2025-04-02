@@ -44,7 +44,7 @@ class SpreadSheetsCollectionDatabaseUniverseGas {
   final SpreadSheetsSchemeDatabaseUniverseGas spreadSheetsSchemeDatabaseUniverseGas;
 
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
-  final Spreadsheet spreadsheet;
+  final SpreadSheetSheet spreadsheet;
 
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   SpreadSheetsCollectionDatabaseUniverseGas({
