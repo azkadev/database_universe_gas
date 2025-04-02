@@ -118,15 +118,27 @@ void main(List<String> args) {
       // telegam_chat_collection;
       //
 
+
       {
-        print("telegam_chat_collection.deleteByIndex: start");
-        final value = telegamChatCollection.getValues(
+        print("telegam_chat_collection.getValuesRaw: start");
+        final value = telegamChatCollection.getValuesRaw(
           startOffset: 2,
           limit: 10,
+          endRow: 2,
         );
         value.printPretty();
-        print("telegam_chat_collection.deleteByIndex: done");
+        print("telegam_chat_collection.getValuesRaw: done");
       }
+      // {
+      //   print("telegam_chat_collection.deleteByIndex: start");
+      //   final value = telegamChatCollection.getValues(
+      //     startOffset: 2,
+      //     limit: 10,
+      //   );
+      //   value.printPretty();
+      //   print("telegam_chat_collection.deleteByIndex: done");
+      // }
+
       // {
       //   print("telegam_chat_collection.deleteByIndex: start");
       //   final value = telegam_chat_collection.deleteByIndex(

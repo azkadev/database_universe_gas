@@ -141,10 +141,7 @@ class SpreadSheetsCollectionDatabaseUniverseGas {
       limit: limit,
       startRow: 1,
       endRow: keys.length,
-    ).map((e) {
-      if (e == null) {
-        return null;
-      }
+    ).map((e) { 
       return e.database_universe_gas_extension_spreadsheet_toJson(
         keys: keys,
       );
