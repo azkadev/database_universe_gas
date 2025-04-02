@@ -38,9 +38,8 @@ import 'package:database_universe_gas/database_universe_gas.dart';
 import 'package:database_universe_gas/spreadsheets/collection/collection.dart';
 import 'package:database_universe_gas/spreadsheets/core.dart';
 import 'package:database_universe_gas/spreadsheets/scheme/core.dart';
-import 'package:general_universe/extension/extension.dart';
-// import 'package:general_universe/crypto/crypto.dart';
-import 'package:general_universe/general_universe.dart' show Crypto;
+import 'package:general_universe/extension/dynamic.dart';
+ import 'package:general_universe/crypto/crypto.dart'; 
 import 'package:general_universe/json_scheme/json_scheme.dart';
 import 'package:google_apps_script_library/google_apps_script_library.dart';
 
