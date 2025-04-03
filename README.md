@@ -55,40 +55,171 @@ Example Quickstart script minimal for insight you or make you use this library b
 
 ```dart
 
-import 'dart:io';
-import 'package:general_lib/general_lib.dart';
-import 'package:whisper_library_dart/whisper_library_dart.dart';
+import 'dart:convert';
+import 'dart:math';
+import 'package:database_universe_gas/database_universe_gas.dart';
+import 'package:general_universe/extension/dynamic.dart';
+import 'package:general_universe/crypto/crypto.dart';
+import 'package:general_universe/json_scheme/json_scheme.dart';
+import 'package:google_apps_script_library/google_apps_script_library.dart';
 
-void main(List<String> args) async {
-  print("start");
+void main(List<String> args) {
+  final GoogleAppsScriptEventTriggers googleAppsScriptEventTriggers = GoogleAppsScriptEventTriggers();
+  MiniDatabaseUniverseGas miniDatabaseUniverseGas = MiniDatabaseUniverseGas();
+  miniDatabaseUniverseGas.ensureInitialized(
+    pathToFile: "configuration",
+    miniDatabaseUniverseGasOptions: MiniDatabaseUniverseGasOptions(
+      miniDatabaseUniverseGasType: MiniDatabaseUniverseGasType.script,
+      crypto: Crypto.defaultCrypto(),
+      isUseCrypto: true,
+      isIgnoreError: true,
+    ),
+  );
+  miniDatabaseUniverseGas.initiaLized();
+  miniDatabaseUniverseGas.stateData.printPretty();
 
-  /// make sure you have downloaded model
-  final String whisperModelPath =
-      "../../../../../big-data/ai/whisper-ggml/ggml-small.bin";
-  final WhisperLibrary whisperLibrary = WhisperLibrary(
-    libraryWhisperPath: "../whisper_library_flutter/linux/libwhisper.so",
+  final bool isRequestPermission = miniDatabaseUniverseGas.valueBuilder<bool>(
+    builder: (db) {
+      if (db["is_request_permission"] is bool == false) {
+        db["is_request_permission"] = false;
+      }
+      return db["is_request_permission"];
+    },
   );
-  await whisperLibrary.ensureInitialized();
-  final isLoadedModel = whisperLibrary.loadWhisperModel(
-    whisperModelPath: whisperModelPath,
+
+  String sheetUrl = miniDatabaseUniverseGas.valueBuilder<String>(
+    builder: (db) {
+      if (db["sheet_url"] is String == false) {
+        db["sheet_url"] = "";
+      }
+      return db["sheet_url"];
+    },
   );
-  if (isLoadedModel == false) {
-    print("cant loaded");
-    exit(1);
-  }
-  final File fileWav = File(
-    "../../native_lib/lib/whisper.cpp/samples/jfk.wav",
+
+  googleAppsScriptEventTriggers.ensureInitialized(
+    onTest: () {
+      {
+        if (isRequestPermission == false) {
+          {
+            // DatabaseUniverseGas.requestPermissionExecute();
+          }
+          miniDatabaseUniverseGas["is_request_permission"] = true;
+          miniDatabaseUniverseGas.write();
+        }
+      }
+      {
+        if (sheetUrl.isEmpty) {
+          final SpreadSheet spreadsheet = SpreadSheetApp.create(
+            "new",
+          );
+
+          miniDatabaseUniverseGas["sheet_url"] = spreadsheet.getUrl();
+          sheetUrl = miniDatabaseUniverseGas["sheet_url"];
+          miniDatabaseUniverseGas.write();
+        }
+      }
+      // final String sheetName = "database";
+
+      final SpreadSheetsDatabaseUniverseGas databaseUniverseGas = SpreadSheetsDatabaseUniverseGas.open(
+        sheetIdOrUrl: sheetUrl,
+        schemes: [
+          SpreadSheetsSchemeDatabaseUniverseGas(
+            sheetName: "telegram_chat",
+            jsonScheme: JsonScheme(
+              {
+                "@type": "telegramChat",
+                "chat_id": 0,
+                "user_id": 0,
+                "room_chat_id": 0,
+                "data": json.encode({}),
+              },
+            ),
+          ),
+        ],
+      );
+      databaseUniverseGas.ensureInitialized();
+      databaseUniverseGas.initialized();
+      final SpreadSheetsCollectionDatabaseUniverseGas telegamChatCollection = databaseUniverseGas.from("telegram_chat");
+      int index = 10; 
+      {
+        print("telegamChatCollection.count: start");
+        final value = telegamChatCollection.count();
+        value.printPretty();
+        print("telegamChatCollection.count: done");
+      }
+
+      {
+        print("telegamChatCollection.insert: start");
+        final value = telegamChatCollection.insert(
+          newValue: {
+            "@type": "telegramChat",
+            "chat_id": Random().nextInt(1000),
+            "user_id": Random().nextInt(1000),
+            "room_chat_id": Random().nextInt(1000),
+            "data": json.encode({}),
+          },
+        );
+        value.printPretty();
+        print("telegamChatCollection.insert: done");
+      }
+
+      {
+        print("telegamChatCollection.getValuesRaw: start");
+        final value = telegamChatCollection.getValuesRaw(
+          startOffset: 2,
+          limit: 10,
+          endRow: 2,
+        );
+        value.printPretty();
+        print("telegamChatCollection.getValuesRaw: done");
+      }
+      {
+        print("telegamChatCollection.deleteByIndex: start");
+        final value = telegamChatCollection.getValues(
+          startOffset: 2,
+          limit: 10,
+        );
+        value.printPretty();
+        print("telegamChatCollection.deleteByIndex: done");
+      }
+
+      {
+        print("telegamChatCollection.deleteByIndex: start");
+        final value = telegamChatCollection.deleteByIndex(
+          index: index,
+        );
+        value.printPretty();
+        print("telegamChatCollection.deleteByIndex: done");
+      }
+
+      {
+        print("telegamChatCollection.getByIndex: start");
+        final value = telegamChatCollection.getByIndex(
+          index: index,
+        );
+        value.printPretty();
+        print("telegamChatCollection.getByIndex: done");
+      }
+      // telegamChatCollection;
+      {
+        print("telegamChatCollection.setByIndex: start");
+        final value = telegamChatCollection.setByIndex(
+          index: index,
+          newValue: {
+            "chat_id": -500002,
+            "user_id": 7141401,
+            "room_chat_id": 31930141,
+            "data": json.encode({
+              "date": DateTime.now().toString(),
+            })
+          },
+        );
+        value.printPretty();
+        print("telegamChatCollection.setByIndex: done");
+      }
+      return {"@type": "error", "message": "unimplemented"};
+    },
   );
-  await Future.delayed(Duration(seconds: 2));
-  DateTime dateTime = DateTime.now();
-  final result = await whisperLibrary.transcribeToJson(
-    fileWav: fileWav,
-    useCountProccecors: 1,
-    useCountThread: (Platform.numberOfProcessors / 2).toInt(),
-  );
-  print("seconds: ${DateTime.now().difference(dateTime)}");
-  result.printPretty();
-  exit(0);
 }
 
 ```
