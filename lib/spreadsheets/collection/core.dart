@@ -104,6 +104,18 @@ class SpreadSheetsCollectionDatabaseUniverseGas {
   int count() {
     return spreadsheet.getLastRow();
   }
+
+  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
+  int getMaxColumnCount() {
+    // because spreadhseet stupid so column and row is reversed named
+    return count();
+  }
+
+  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
+  int getMaxRowCount() {
+    return spreadsheet.getLastColumn();
+  }
+
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
 
   Map insert({
