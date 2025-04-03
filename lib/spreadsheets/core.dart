@@ -57,7 +57,7 @@ class SpreadSheetsDatabaseUniverseGas {
     required String sheetIdOrUrl,
     required List<SpreadSheetsSchemeDatabaseUniverseGas> schemes,
   }) {
-    final SpreadSheet spreadsheet = SpreadsheetApp.openByUrlOrId(
+    final SpreadSheet spreadsheet = SpreadSheetApp.openByUrlOrId(
       sheetIdOrUrl: sheetIdOrUrl,
     );
     return SpreadSheetsDatabaseUniverseGas(
