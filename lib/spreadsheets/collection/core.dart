@@ -44,12 +44,12 @@ class SpreadSheetsCollectionDatabaseUniverseGas {
   final SpreadSheetsSchemeDatabaseUniverseGas spreadSheetsSchemeDatabaseUniverseGas;
 
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
-  final SpreadSheetSheet spreadsheet;
+  final SpreadSheetSheet spreadSheet;
 
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   SpreadSheetsCollectionDatabaseUniverseGas({
     required this.spreadSheetsSchemeDatabaseUniverseGas,
-    required this.spreadsheet,
+    required this.spreadSheet,
   });
 
   List<String> _keys = [];
@@ -91,7 +91,7 @@ class SpreadSheetsCollectionDatabaseUniverseGas {
       endRow: keyLength,
       totalLength: 1,
     );
-    spreadsheet.getRange(sheetRange).setValues(
+    spreadSheet.getRange(sheetRange).setValues(
       [
         keys,
       ],
@@ -102,7 +102,7 @@ class SpreadSheetsCollectionDatabaseUniverseGas {
 
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   int count() {
-    return spreadsheet.getLastRow();
+    return spreadSheet.getLastRow();
   }
 
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
@@ -113,7 +113,7 @@ class SpreadSheetsCollectionDatabaseUniverseGas {
 
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   int getMaxRowCount() {
-    return spreadsheet.getLastColumn();
+    return spreadSheet.getLastColumn();
   }
 
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
@@ -148,7 +148,7 @@ class SpreadSheetsCollectionDatabaseUniverseGas {
       }
     }
     //   int index = 2;
-    return spreadsheet.getSheetValues(startOffset, startRow, limit, endRow).map((e) {
+    return spreadSheet.getSheetValues(startOffset, startRow, limit, endRow).map((e) {
       if (e.database_universe_gas_extension_spreadsheet_isEmpty) {
         return null;
       }
@@ -179,7 +179,7 @@ class SpreadSheetsCollectionDatabaseUniverseGas {
   Map? getByIndex({
     required final int index,
   }) {
-    final Map? value = spreadsheet.getSheetValues(index, 1, 1, keyLength).firstOrNull.database_universe_gas_extension_spreadsheet_toJson(keys: keys);
+    final Map? value = spreadSheet.getSheetValues(index, 1, 1, keyLength).firstOrNull.database_universe_gas_extension_spreadsheet_toJson(keys: keys);
     // if (value != null) {
     //   value["@id"] = index;
     // }
@@ -196,7 +196,7 @@ class SpreadSheetsCollectionDatabaseUniverseGas {
       endRow: keyLength,
       totalLength: index,
     );
-    spreadsheet.getRange(sheetRange).setValues(
+    spreadSheet.getRange(sheetRange).setValues(
       <List<Null>>[
         List.generate(keyLength, (index) {
           return null;
@@ -220,7 +220,7 @@ class SpreadSheetsCollectionDatabaseUniverseGas {
       stateKeys: keys,
       oldData: {},
     );
-    spreadsheet.getRange(sheetRange).setValues(
+    spreadSheet.getRange(sheetRange).setValues(
       [
         newValues,
       ],
@@ -243,7 +243,7 @@ class SpreadSheetsCollectionDatabaseUniverseGas {
       stateKeys: keys,
       oldData: oldData,
     );
-    spreadsheet.getRange(sheetRange).setValues(
+    spreadSheet.getRange(sheetRange).setValues(
       [
         newValues,
       ],

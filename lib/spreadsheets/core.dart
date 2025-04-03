@@ -41,14 +41,14 @@ import 'scheme/scheme.dart';
 /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
 class SpreadSheetsDatabaseUniverseGas {
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
-  final SpreadSheet spreadsheet;
+  final SpreadSheet spreadSheet;
 
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   final List<SpreadSheetsCollectionDatabaseUniverseGas> collections;
 
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   SpreadSheetsDatabaseUniverseGas({
-    required this.spreadsheet,
+    required this.spreadSheet,
     required this.collections,
   });
 
@@ -57,18 +57,18 @@ class SpreadSheetsDatabaseUniverseGas {
     required String sheetIdOrUrl,
     required List<SpreadSheetsSchemeDatabaseUniverseGas> schemes,
   }) {
-    final SpreadSheet spreadsheet = SpreadSheetApp.openByUrlOrId(
+    final SpreadSheet spreadSheet = SpreadSheetApp.openByUrlOrId(
       sheetIdOrUrl: sheetIdOrUrl,
     );
     return SpreadSheetsDatabaseUniverseGas(
-      spreadsheet: spreadsheet,
+      spreadSheet: spreadSheet,
       collections: schemes.map((e) {
         return SpreadSheetsCollectionDatabaseUniverseGas(
           spreadSheetsSchemeDatabaseUniverseGas: SpreadSheetsSchemeDatabaseUniverseGas(
             sheetName: e.sheetName,
             jsonScheme: e.jsonScheme,
           ),
-          spreadsheet: spreadsheet.getSheetByNameAutoCreateIfNotExist(e.sheetName),
+          spreadSheet: spreadSheet.getSheetByNameAutoCreateIfNotExist(e.sheetName),
         );
       }).toList(),
     );
@@ -91,7 +91,7 @@ class SpreadSheetsDatabaseUniverseGas {
         sheetName: scheme.sheetName,
         jsonScheme: scheme.jsonScheme,
       ),
-      spreadsheet: spreadsheet.getSheetByNameAutoCreateIfNotExist(scheme.sheetName),
+      spreadSheet: spreadSheet.getSheetByNameAutoCreateIfNotExist(scheme.sheetName),
     );
 
     if (isAutoToCollection) {
