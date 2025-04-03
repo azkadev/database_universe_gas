@@ -101,7 +101,7 @@ void main(List<String> args) {
       {
         if (isRequestPermission == false) {
           {
-            // DatabaseUniverseGas.requestPermissionExecute();
+            DatabaseUniverseGas.requestPermissionExecute();
           }
           miniDatabaseUniverseGas["is_request_permission"] = true;
           miniDatabaseUniverseGas.write();

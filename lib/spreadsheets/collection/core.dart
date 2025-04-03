@@ -35,6 +35,7 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 import 'package:database_universe_gas/extensions/list.dart';
 import 'package:database_universe_gas/extensions/map.dart';
 import 'package:database_universe_gas/spreadsheets/scheme/scheme.dart';
+import 'package:general_universe/extension/list.dart';
 import 'package:general_universe/utils/sheet/spreadsheet.dart';
 import 'package:google_apps_script_library/google_apps_script_library.dart';
 
@@ -158,16 +159,54 @@ class SpreadSheetsCollectionDatabaseUniverseGas {
 
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
 
+  List<String> takeKeys({
+    required int startIndex,
+    required int endIndex,
+  }) {
+    return keys.general_universe_extension_take_from(startIndex: startIndex, endIndex: endIndex).toList();
+  }
+
+  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   List<Map?> getValues({
     int startOffset = 2,
     required int limit,
+    int startRow = 0,
+    int endRow = 0,
   }) {
-    final List<String> keys = this.keys;
+
+    {
+      if (startRow < 0) {
+        startRow = 0;
+      } else if (startRow > keyLength) {
+        startRow = keyLength;
+      }
+    }
+    {
+      if (endRow < 0) {
+        endRow = keyLength;
+      } else if (endRow > keyLength) {
+        endRow = keyLength;
+      }
+    }
+    {
+      /// jika data startRow lebih besar
+      /// maka rubah data endRow sama dengan startRow
+      if (startRow > endRow) {
+        endRow = startRow;
+      }
+    }
+
+    /// mengambil keys
+    final List<String> keys = takeKeys(
+      startIndex: startRow,
+      endIndex: endRow,
+    );
+
     return getValuesRaw(
       startOffset: startOffset,
       limit: limit,
-      startRow: 1,
-      endRow: keys.length,
+      startRow: startRow + 1,
+      endRow: endRow + 1,
     ).map((e) {
       return e.database_universe_gas_extension_spreadsheet_toJson(
         keys: keys,

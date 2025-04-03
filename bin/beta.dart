@@ -1,34 +1,81 @@
-/* <!-- START LICENSE -->
+// import 'package:general_universe/extension/extension.dart';
 
+// extension ListExtension<AValueTypeV> on List<AValueTypeV> {
+//   List<AValueTypeV> general_universe_extension_take_from({
+//     int startIndex = 0,
+//     int endIndex = 0,
+//   }) {
+//     final List<AValueTypeV> datas = [];
+//     {
+//       if (startIndex < 1) {
+//         startIndex = 0;
+//       }
+//     }
+//     {
+//       if (endIndex < 1) {
+//         endIndex = length;
+//       } else if (endIndex > length) {
+//         endIndex = length;
+//       }
+//     }
 
-This Software / Program / Source Code Created By Developer From Company GLOBAL CORPORATION
-Social Media:
+//     for (int i = startIndex; i < endIndex; i++) {
+//       datas.add(this[i]);
+//     }
+//     return datas;
+//   }
 
-   - Youtube: https://youtube.com/@Global_Corporation 
-   - Github: https://github.com/globalcorporation
-   - TELEGRAM: https://t.me/GLOBAL_CORP_ORG_BOT
+// }
 
-All code script in here created 100% original without copy / steal from other code if we copy we add description source at from top code
+import 'package:general_universe/extension/dynamic.dart';
+import 'package:general_universe/extension/list.dart';
 
-If you wan't edit you must add credit me (don't change)
+void main(List<String> args) {
+  int startRow = 0;
+  int endRow = 1;
+  final List<String> _keys = [
+    "index", // 0 // 1
+    "chat_id", // 1 // 2
+    "user_id",
 
-If this Software / Program / Source Code has you
+    /// 2 // 3
+    "room_chat_id",
 
-Jika Program ini milik anda dari hasil beli jasa developer di (Global Corporation / apapun itu dari turunan itu jika ada kesalahan / bug / ingin update segera lapor ke sub)
+    /// 3 // 4
+    "data", // 4 // 5
+  ];
+  int keyLength = _keys.length;
 
-Misal anda beli Beli source code di Slebew CORPORATION anda lapor dahulu di slebew jangan lapor di GLOBAL CORPORATION!
+  {
+    if (startRow < 0) {
+      print("Sas");
+      startRow = 0;
+    } else if (startRow > keyLength) {
+      startRow = keyLength;
+    }
+  }
+  {
+    if (endRow < 0) {
+      print("ya");
+      endRow = keyLength;
+    } else if (endRow > keyLength) {
+      print("sad");
+      endRow = keyLength;
+    }
+  }
+  {
+    /// jika data startRow lebih besar
+    /// maka rubah data endRow sama dengan startRow
+    if (startRow > endRow) {
+      endRow = startRow;
+    }
+  }
+  final keys = _keys.general_universe_extension_take_from(
+    startIndex: startRow,
+    endIndex: endRow,
+  );
+  keys.printPretty();
+  print(startRow + 1);
 
-Jika ada kendala program ini (Pastikan sebelum deal project tidak ada negosiasi harga)
-Karena jika ada negosiasi harga kemungkinan
-
-1. Software Ada yang di kurangin
-2. Informasi tidak lengkap
-3. Bantuan Tidak Bisa remote / full time (Ada jeda)
-
-Sebelum program ini sampai ke pembeli developer kami sudah melakukan testing
-
-jadi sebelum nego kami sudah melakukan berbagai konsekuensi jika nego tidak sesuai ? 
-Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba tiba di potong akhirnya bantuan / software kadang tidak lengkap
-
-
-<!-- END LICENSE --> */
+  print(endRow + 1);
+}

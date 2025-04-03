@@ -1,3 +1,5 @@
 ## 1.0.0
 
-- Initial version.
+- New Version 1.0.0
+- Update Dependencies
+ 
